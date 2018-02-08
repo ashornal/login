@@ -18,4 +18,33 @@ class User
         $this->password = $password;
         $this->loggedIn = $loggedIn;
     }
+
+    function getUser()
+    {
+        return $this->_name;
+    }
+
+    function setUser($name)
+    {
+        $this->_name = $name;
+    }
+
+    function setPassword($password)
+    {
+        if(strlen($password >= 6))
+        {
+            $this-> password = $password;
+        }
+    }
+
+    function login($username, $password)
+    {
+        include 'users.php';
+        if($username==$username && $password == $password)
+        {
+            echo "<p>$username is logged in";
+            $loggedIn = true;
+        }
+        echo "<p>Login Error</p>";
+    }
 }
