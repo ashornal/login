@@ -8,28 +8,24 @@
 
 class Admin extends User
 {
-
+    private $username;
+    private $password;
     private $accessLevel;
 
-    function __construct($username, $password, $accessLevel)
+    function __construct()
     {
-        $this->$username = $username;
-        $this->$password = $password;
-        $this->$accessLevel = $accessLevel;
+        $this->username = "";
+        $this->password = "";
+        $this->accessLevel = "";
     }
 
-    function setAccessLevel($accessLevel) {
-
-        $this-> accessLevel = $accessLevel;
+    function getAccessLevel(){
+        echo "<p>Access level: $this->_accessLevel</p>";
     }
-
-    function getAccessLevel() {
-
-        return $this-> accessLevel;
+    function setAccessLevel($level){
+        $this->_accessLevel = $level;
     }
-
-    function editUser($username) {
-
-        echo "<p>Editing $username</p>";
+    function editUser($user){
+        echo "<p>Editing: ".$user->getUser()."</p>";
     }
 }

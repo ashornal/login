@@ -19,11 +19,11 @@ class User
      * @param string $password password set to empty string
      * @param bool $loggedIn loggedIn check set to false;
      */
-    function __construct($username = " ", $password = " ", $loggedIn = false)
+    function __construct()
     {
-        $this->username = $username;
-        $this->password = $password;
-        $this->loggedIn = $loggedIn;
+        $this->username = "";
+        $this->password = "";
+        $this->loggedIn = false;
     }
 
     /**
@@ -32,7 +32,7 @@ class User
      */
     function getUser()
     {
-        return $this->_username;
+        return $this->username;
     }
 
     /**
@@ -41,7 +41,7 @@ class User
      */
     function setUser($username)
     {
-        $this->_username = $username;
+        $this-> username = $username;
     }
 
     /**
@@ -65,13 +65,16 @@ class User
     function login($username, $password)
     {
         include 'users.php';
-        if($this->username == $username && $this->password == $password)
+        foreach ($user as $key => $value)
         {
-            echo "<p>$username is logged in";
-            $this->loggedIn = true;
-        }
-        else {
-            echo "<p>Login Error</p>";
+            if($key == $username && $value == $password)
+            {
+                echo "<p>$username is logged in";
+            }
+            else
+            {
+                echo "<p>Login Error</p>";
+            }
         }
     }
 
